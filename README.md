@@ -5,7 +5,7 @@ $ nmtui
 $ sudo pacman -Syy
 ```
 ```
-$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen feh picom kitty qutebrowser chroimum lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion xord-xdpyinfo ttf-font-awesome ttf-fira-code ttf-cascadia-code lightdm lightdm-gtk-greeter pacman-contrib xrandr bc maim xclip
+$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen feh picom kitty qutebrowser chroimum lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion xord-xdpyinfo ttf-font-awesome ttf-fira-code ttf-cascadia-code lightdm lightdm-gtk-greeter pacman-contrib xorg-xrandr bc maim xclip neofetch code
 ```
 ```
 $ mkdir .config/bspwm .config/sxhkd .config/polybar
@@ -37,7 +37,7 @@ $ cd yay
 $ makepkg -si
 ```
 ```
-$ yay -S polybar pamac-aur siji-git zoom betterlockscreen 
+$ yay -S polybar pamac-aur siji-git zoom betterlockscreen gotop
 ```
 ```
 $ nvim .config/polybar/config
@@ -47,3 +47,21 @@ $ chmod +x .config/polybar/launch.sh
 ```
 $ betterlockscreen -u Pictures/arch.png -b 1.0
 ```
+## Set up Pamac Manager
+```
+$ su
+$ cd /etc/polkit-1/rules.d
+$ nvim 99-arch.rules
+
+polkit.addRule(function(action, subject) {
+	if (action.id.indexOf("org.freedesktop.pamac-manager.")) {
+		return polkit.Result.YES;
+	}
+});
+```
+## Remove orphans
+```
+$ sudo pacman -Qtdq
+$ sudo pacman -Rns $(pacman -Qtdq)
+```
+
