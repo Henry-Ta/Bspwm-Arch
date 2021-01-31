@@ -64,4 +64,7 @@ polkit.addRule(function(action, subject) {
 $ sudo pacman -Qtdq
 $ sudo pacman -Rns $(pacman -Qtdq)
 ```
-
+## Update core editor of git
+```
+$ git config --global core.editor 'nvim'
+```
