@@ -75,3 +75,10 @@ $ sudo pacman -Rns $(pacman -Qtdq)
 ```
 $ git config --global core.editor 'nvim'
 ```
+## Configure Lightdm
+```
+$ sudo pacman -S lightdm-gtk-greeter-settings
+
+Note: PNG or JPG images put in /usr/share/pixmaps
+```
+
