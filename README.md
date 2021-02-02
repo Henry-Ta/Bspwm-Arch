@@ -4,8 +4,12 @@
 $ nmtui
 $ sudo pacman -Syy
 ```
+
 ```
-$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen feh picom kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion xorg-xdpyinfo ttf-font-awesome ttf-fira-code ttf-cascadia-code lightdm lightdm-gtk-greeter pacman-contrib xorg-xrandr bc maim neofetch code ttf-droid ttf-joypixels galculator evince```
+$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen feh picom kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion xorg-xdpyinfo ttf-font-awesome ttf-fira-code ttf-cascadia-code lightdm lightdm-gtk-greeter pacman-contrib xorg-xrandr bc maim neofetch code ttf-droid ttf-joypixels galculator evince
+
+```
+
 ```
 $ mkdir .config/bspwm .config/sxhkd .config/polybar
 $ cp /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
@@ -16,6 +20,7 @@ $ chmod +x .config/sxhkd/sxhkdrc
 
 $ nvim .config/sxhkd/sxhkdrc
 $ nvim .config/bspwm/bspwmrc
+
 ```
 ```
 $ nvim .xinitrc
@@ -28,6 +33,7 @@ $ sudo systemctl enable lightdm
 ```
 ## Post Installation
 #### Install Yay
+
 ```
 $ cd /opt
 $ sudo git clone https://aur.archlinux.org/yay.git
@@ -35,9 +41,11 @@ $ sudo chown -R henry:users ./yay
 $ cd yay
 $ makepkg -si
 ```
+
 ```
 $ yay -S polybar pamac-aur siji-git zoom betterlockscreen gotop
 ```
+
 ```
 $ nvim .config/polybar/config
 $ chmod +x .config/polybar/launch.sh
