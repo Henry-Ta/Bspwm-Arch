@@ -7,10 +7,10 @@ super + Return
 	kitty
 
 # program launcher
-super + d
-	dmenu_run
+#super + @space
+#	dmenu_run
 
-super + @space
+super + d
 	rofi -show drun
 
 
