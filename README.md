@@ -5,8 +5,7 @@ $ nmtui
 $ sudo pacman -Syy
 ```
 ```
-$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen feh picom kitty qutebrowser chroimum lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion xord-xdpyinfo ttf-font-awesome ttf-fira-code ttf-cascadia-code lightdm lightdm-gtk-greeter pacman-contrib xorg-xrandr bc maim xclip neofetch code
-```
+$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen feh picom kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion xorg-xdpyinfo ttf-font-awesome ttf-fira-code ttf-cascadia-code lightdm lightdm-gtk-greeter pacman-contrib xorg-xrandr bc maim neofetch code ttf-droid ttf-joypixels galculator evince```
 ```
 $ mkdir .config/bspwm .config/sxhkd .config/polybar
 $ cp /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
