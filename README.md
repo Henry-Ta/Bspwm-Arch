@@ -80,7 +80,7 @@ $ git config --global core.editor 'nvim'
 ```
 $ sudo pacman -S lightdm-gtk-greeter-settings
 
-Note: PNG or JPG images put in /usr/share/pixmaps
+Note: Put PNG or JPG images in /usr/share/pixmaps
 ```
 
 ## Fonts
