@@ -6,10 +6,10 @@ $ sudo pacman -Syy
 ```
 
 ```
-$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen feh picom kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion xorg-xdpyinfo ttf-font-awesome ttf-fira-code ttf-cascadia-code lightdm lightdm-gtk-greeter pacman-contrib xorg-xrandr bc maim neofetch code ttf-droid ttf-joypixels galculator evince
+$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter pacman-contrib neofetch code galculator evince
 
 ```
-
+ 
 ```
 $ mkdir .config/bspwm .config/sxhkd .config/polybar
 $ cp /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
@@ -52,13 +52,14 @@ $ chmod +x .config/polybar/launch.sh
 ```
 ## Set up Betterlockscreen
 ```
+$ sudo pacman -S xorg-xdpyinfo xorg-xrandr bc feh
 $ betterlockscreen -u Pictures/arch.png -b 1.0
 ```
 ## Set up Pamac Manager
 ```
 $ su
 $ cd /etc/polkit-1/rules.d
-$ nvim 99-arch.rules
+$ nvim 99-pamac.rules
 
 polkit.addRule(function(action, subject) {
 	if (action.id.indexOf("org.freedesktop.pamac-manager.")) {
@@ -82,3 +83,7 @@ $ sudo pacman -S lightdm-gtk-greeter-settings
 Note: PNG or JPG images put in /usr/share/pixmaps
 ```
 
+## Fonts
+```
+$ sudo pacman -S ttf-font-awesome ttf-cascadia-code ttf-fira-code ttf-droid ttf-joypixels 
+```
