@@ -87,3 +87,9 @@ Note: Put PNG or JPG images in /usr/share/pixmaps
 ```
 $ sudo pacman -S ttf-font-awesome ttf-cascadia-code ttf-fira-code ttf-droid ttf-joypixels 
 ```
+
+## Configure Powerline Terminal
+```
+OSH_THEME="cupcake" 	( .bashrc )
+$ nvim .oh-my-bash/themes/cupcake/cupcake.theme.sh
+```
