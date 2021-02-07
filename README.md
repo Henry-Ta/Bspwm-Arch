@@ -85,7 +85,7 @@ Note: Put PNG or JPG images in /usr/share/pixmaps
 
 ## Fonts
 ```
-$ sudo pacman -S ttf-font-awesome ttf-cascadia-code ttf-fira-code ttf-droid ttf-joypixels 
+$ sudo pacman -S ttf-font-awesome ttf-cascadia-code ttf-fira-code ttf-droid ttf-joypixels ttf-nerd-fonts-symbols
 ```
 
 ## Configure Powerline Terminal
