@@ -6,7 +6,7 @@ $ sudo pacman -Syy
 ```
 
 ```
-$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter pacman-contrib neofetch code galculator evince gufw clamtk
+$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter pacman-contrib neofetch code galculator evince gufw clamtk nodejs npm ctags python-pygame
 
 ```
  
