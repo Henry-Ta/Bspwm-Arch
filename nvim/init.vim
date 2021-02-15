@@ -1,41 +1,42 @@
 call plug#begin('~/.config/nvim/plugged')
 
-	Plug 'dracula/vim'	 
+    Plug 'morhetz/gruvbox'	
 	
-	Plug 'vim-airline/vim-airline'		
+    Plug 'vim-airline/vim-airline'		
 	Plug 'vim-airline/vim-airline-themes'
-
-	Plug 'jiangmiao/auto-pairs'
 
 	Plug 'scrooloose/nerdtree'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-	Plug 'ap/vim-css-color'
-
 	Plug 'yggdroot/indentline'
 
 	Plug 'majutsushi/tagbar'
 
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
-"---------------------------------------------------------------- Theme
+"--------------------------------:-------------------------------- Theme
 if (has("termguicolors"))
- set termguicolors
+	set termguicolors
 endif
 
 syntax enable
-colorscheme dracula 
+colorscheme gruvbox 
 
 
 "----------------------------------------------------------------- Vim Airline 
-let g:airline_theme='dracula' 
+let g:airline_theme='gruvbox' 
 let g:airline#extensions#tabline#enabled = 1
 
 
 "----------------------------------------------------------------- Nerd Tree
 " Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+"autocmd VimEnter * NERDTree | wincmd p
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
@@ -44,7 +45,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Shortcut 
 " nnoremap <leader>n :NERDTreeFocus<CR>
 " nnoremap <C-n> :NERDTree<CR>
-nnoremap <F9> :NERDTreeToggle<CR>
+nnoremap <F7> :NERDTreeToggle<CR>
 " nnoremap <C-f> :NERDTreeFind<CR>
 
 "-> Shift + I: toggle hidden files
@@ -62,7 +63,9 @@ let g:airline_powerline_fonts = 1
 
 "------------------------------------------------------------------ Indent Line
 let g:indentLine_setColors = 0
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+"let g:indentLine_char_list = ['▏','│','|','⎸', '¦', '┆', '┊']
+let g:indentLine_char = '▏'
+"let g:indentLine_char_list = ['│','┆']
 
 
 "------------------------------------------------------------------ Tag Bar
@@ -119,11 +122,53 @@ let g:WebDevIconsDefaultFolderSymbolColor = s:beige " sets the color for folders
 let g:WebDevIconsDefaultFileSymbolColor = s:blue " sets the color for files that did not match any rule
 
 
+"-----------------------------------------------FzF
+nnoremap <F6> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \}
+" requires the_silver_searcher
+" used to ignore gitignore files
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-"-----------------------------------------------------------------------------------------"
+
+"------------------------------------------------------COC-Nvim
+let g:coc_global_extensions = ['coc-highlight','coc-pairs','coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+
+
+"-----------------------------------------SETTINGS---------------------------------------------"
 set number relativenumber
 set splitbelow 
 set splitright
+set mouse=a
+set cursorline
+
+"autocmd InsertEnter * highlight CursorLine guibg=#FFAF7E guifg=default
+"autocmd InsertLeave * highlight CursorLine guibg=default guifg=defaul
+
+"                   Visual Mode Orange Background, Black Text
+" highlight Visual  guibg=#FFB86C guifg=default
+
+"                           Default Colors for CursorLine
+" highlight CursorLine guibg=default guifg=default
+" highlight Cursor guibg=#A6E22E guifg=#A6E22E
+
+"                   Change Color when entering Insert Mode
+" autocmd InsertEnter * highlight  CursorLine guibg=#50FA7B guifg=#2E3038
+" autocmd InsertEnter * highlight  Cursor guibg=#50FA7B
+
+"                   Revert Color to default when leaving Insert Mode
+" autocmd InsertLeave * highlight  CursorLine guibg=#424450 guifg=default
+" autocmd InsertLeave * highlight  Cursor guibg=#A6E22E
+
+"highlight Cursor guifg=white guibg=black
+"highlight iCursor guifg=white guibg=steelblue
+"set guicursor=n-v-c:block-Cursor
+"set guicursor+=i:ver100-iCursor
+"set guicursor+=n-v-c:blinkon0
+"set guicursor+=i:blinkwait10
 
 "-----------------------------------------------------Switch Windows 
 nnoremap <A-h> <C-w>h
@@ -147,3 +192,23 @@ nnoremap <Leader>g :e#<CR>
 "--------> gt : to move to next tab
 "--------> gT : to move to previous tab
 "--------> 'number'gt : to move to a specific tab in order
+
+"----------------------------------------------------- Tab Width
+set tabstop=4       " The width of a TAB is set to 4.
+                    " Still it is a \t. It is just that
+                    " Vim will interpret it to be having
+                    " a width of 4.
+
+set shiftwidth=4    " Indents will have a width of 4
+
+set softtabstop=4   " Sets the number of columns for a TAB
+
+set expandtab       " Expand TABs to spaces
+
+"------------------------------------------------------Resize windows
+" Use ctrl + hjkl to resize windows
+nnoremap <C-j>    :resize +2<CR>
+nnoremap <C-k>    :resize -2<CR>
+nnoremap <C-h>    :vertical resize +2<CR>
+nnoremap <C-l>    :vertical resize -2<CR>
+

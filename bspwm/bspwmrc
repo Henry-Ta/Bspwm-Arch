@@ -2,7 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-~/.config/polybar/launch.sh &
+bash ~/.config/polybar/launch.sh --blocks &
 
 nitrogen --restore &
 
@@ -11,7 +11,7 @@ picom -f &
 bspc monitor -d I II III IV V
 
 bspc config border_width         2
-bspc config window_gap          12
+bspc config window_gap           5 
 
 bspc config split_ratio          	0.52
 bspc config borderless_monocle   	true
@@ -22,14 +22,14 @@ bspc config history_aware_focus         true
 
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
 
-bspc rule -a qutebrowser desktop='^2' 	follow=on
+#bspc rule -a qutebrowser desktop='^2' 	follow=on
 #bspc rule -a Chromium desktop='^2'
 
 #bspc rule -a Pcmanfm state=floating
 bspc rule -a Nitrogen 			state=floating centre=true
 bspc rule -a Pavucontrol 		state=floating
 bspc rule -a Lxappearance 		state=floating
-bspc rule -a feh 			state=floating
+#bspc rule -a feh 			state=floating
 bspc rule -a Galculator 		state=floating
 
 bspc rule -a code-oss desktop='^3'

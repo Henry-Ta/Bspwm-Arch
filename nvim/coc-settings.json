@@ -1,0 +1,4 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["python"," javascript, php"],
+  "prettier.tabWidth":4 
+}
