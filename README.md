@@ -6,7 +6,7 @@ $ sudo pacman -Syy
 ```
 
 ```
-$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter pacman-contrib neofetch code galculator evince gufw clamtk nodejs npm ctags python-pygame
+$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter pacman-contrib neofetch code galculator evince gufw clamtk nodejs npm ctags python-pygame gpickview
 
 ```
  
@@ -92,4 +92,24 @@ $ sudo pacman -S ttf-font-awesome ttf-cascadia-code ttf-fira-code ttf-droid ttf-
 ```
 OSH_THEME="cupcake" 	( .bashrc )
 $ nvim .oh-my-bash/themes/cupcake/cupcake.theme.sh
+```
+
+## Enable Image Preview for Kitty and Ranger
+```
+$ sudo pacman -S w3m python-pillow
+```
+```
+$ nvim .config/ranger/rc.conf
+
+set preview_images true
+set preivew_images_method kitty
+
+```
+
+## Enalb document view in nvim from ranger
+```
+$ nvim .bashrc
+
+export VISUAL=nvim;
+export EDITOR=nvim;
 ```
