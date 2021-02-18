@@ -14,7 +14,6 @@ $ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrog
 $ mkdir .config/bspwm .config/sxhkd .config/polybar
 $ cp /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
 $ cp /usr/share/doc/bspwm/examples/sxhkdrc .config/sxhkd/
-
 $ chmod +x .config/bspwm/bspwmrc
 $ chmod +x .config/sxhkd/sxhkdrc
 
