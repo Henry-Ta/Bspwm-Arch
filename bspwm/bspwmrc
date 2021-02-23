@@ -19,7 +19,7 @@ bspc config gapless_monocle         true
 
 bspc config focus_follows_pointer   true
 
-bspc rule -a Nitrogen           state=floating centre=true  
+bspc rule -a Nitrogen           state=floating  center=true 
 bspc rule -a Pavucontrol        state=floating              
 bspc rule -a Lxappearance       state=floating
 

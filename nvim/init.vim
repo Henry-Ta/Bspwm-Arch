@@ -1,32 +1,32 @@
 call plug#begin('~/.config/nvim/plugged')
 	
-	Plug 'gruvbox-community/gruvbox'	
-
-	Plug 'vim-airline/vim-airline'
+	Plug 'gruvbox-community/gruvbox'
+    Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
-	
-	Plug 'jiangmiao/auto-pairs'
-	Plug 'yggdroot/indentline'
 
-	Plug 'scrooloose/nerdcommenter'
+    Plug 'w0rp/ale'
 
-	Plug 'scrooloose/nerdtree'
-	Plug 'ryanoasis/vim-devicons'
-	Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'tpope/vim-surround'
 
-	Plug 'majutsushi/tagbar'
-
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'junegunn/fzf.vim'
-
-	Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
 	Plug 'airblade/vim-gitgutter'
 
-	Plug 'tpope/vim-surround'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
 
-	Plug 'w0rp/ale'
+    Plug 'majutsushi/tagbar'
 
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'scrooloose/nerdcommenter'
+
+    Plug 'scrooloose/nerdtree'
+    Plug 'xuyuanp/nerdtree-git-plugin'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'yggdroot/indentline'
+
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -44,11 +44,32 @@ let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 
 
-"--------------------------------------- Auto Pair
-filetype plugin on
-filetype indent off
+"-----------------------------------------------GitGutter
+function! GitStatus()
+	let [a,m,r] = GitGutterGetHunkSummary()
+	return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
 
-set smartindent
+
+"------------------------------------- FzF
+nnoremap <M-f> :FZF<CR>
+
+let g:fzf_action = {'alt-s': 'split','alt-v': 'vsplit'}
+" requires the_silver_searcher
+" used to ignore gitignore files
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+
+"------------------------------------- Tag Bar
+nnoremap <M-t> :TagbarToggle<CR>
+" let g:tagbar_indent = 3
+let g:tagbar_show_data_type = 1
+let g:tagbar_show_linenumbers = -1
+let g:tagbar_show_tag_linenumbers = 1
+let g:tagbar_show_tag_count = 1
+let g:tagbar_previewwin_pos = ''
+"let g:tagbar_autopreview = 1
 
 
 "--------------------------------------- Nerd Tree
@@ -71,8 +92,23 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []
 " let g:NERDTreeStatusline = ''
 
+"-------------------------------------- Nerd Tree Git Plugin
+"let g:NERDTreeGitStatusIndicatorMapCustom = {
+                "\ 'Modified'  :'✹',
+                "\ 'Staged'    :'✚',
+                "\ 'Untracked' :'✭',
+                "\ 'Renamed'   :'➜',
+                "\ 'Unmerged'  :'═',
+                "\ 'Deleted'   :'✖',
+                "\ 'Dirty'     :'✗',
+                "\ 'Ignored'   :'☒',
+                "\ 'Clean'     :'✔︎',
+                "\ 'Unknown'   :'?',
+                "\ }
 
-"------------------------------------- Favicons
+"let g:NERDTreeGitStatusUseNerdFonts = 1
+
+"------------------------------------- Devicons
 set guifont=DroidSansMono\ Nerd\ Font\ 11
 let g:airline_powerline_fonts = 1
 
@@ -115,36 +151,12 @@ let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets th
 let g:WebDevIconsDefaultFolderSymbolColor = s:beige " sets the color for folders that did not match any rule
 let g:WebDevIconsDefaultFileSymbolColor = s:blue " sets the color for files that did not match any rule
 
-"------------------------------------- Tag Bar
-nnoremap <M-t> :TagbarToggle<CR>
-" let g:tagbar_indent = 3
-let g:tagbar_show_data_type = 1
-let g:tagbar_show_linenumbers = -1
-let g:tagbar_show_tag_linenumbers = 1
-let g:tagbar_show_tag_count = 1
-let g:tagbar_previewwin_pos = ''
-"let g:tagbar_autopreview = 1
 
+"--------------------------------------- Auto Pair
+filetype plugin on
+filetype indent off
 
-"------------------------------------- FzF
-nnoremap <M-f> :FZF<CR>
-
-let g:fzf_action = {'alt-s': 'split','alt-v': 'vsplit'}
-" requires the_silver_searcher
-" used to ignore gitignore files
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
-
-"-----------------------------------------------GitGutter
-function! GitStatus()
-	let [a,m,r] = GitGutterGetHunkSummary()
-	return printf('+%d ~%d -%d', a, m, r)
-endfunction
-set statusline+=%{GitStatus()}
-
-
-"-----------------------------------------------Coc_Nvim
-let g:coc_global_extensions = ['coc-highlight', 'coc-emmet', 'coc-python', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+set smartindent
 
 
 "------------------------------------------------------------------ Indent Line
@@ -153,6 +165,12 @@ let g:indentLine_setColors = 0
 let g:indentLine_char = '▏'
 "let g:indentLine_char_list = ['│','┆']
 
+autocmd Filetype json :IndentLinesDisable
+
+
+"-----------------------------------------------Coc_Nvim
+let g:coc_global_extensions = ['coc-highlight', 'coc-emmet', 'coc-python', 'coc-css', 'coc-html', 'coc-phpls', 'coc-json', 'coc-prettier', 'coc-tsserver']
+
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++SETTINGS++++++++++++++++++++++++++++++++++++++++++++++++++++++++" 
 set number relativenumber
@@ -160,3 +178,18 @@ set splitbelow
 set splitright
 set mouse=a
 set cursorline
+
+
+"----------------------------------------------------- Tab Width
+set tabstop=4       " The width of a TAB is set to 4. Still it is a \t. It is just that Vim will interpret it to be having a width of 4.
+set shiftwidth=4    " Indents will have a width of 4
+set softtabstop=4   " Sets the number of columns for a TAB
+set expandtab       " Expand TABs to spaces
+
+
+"-----------------------------------------------------Switch Windows 
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+nnoremap <A-=> <C-w>=

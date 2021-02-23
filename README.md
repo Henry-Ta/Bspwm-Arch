@@ -6,7 +6,7 @@ $ sudo pacman -Syy
 ```
 
 ```
-$ sudo pacman -S xf86-video-intel xf86-video-amdgpu xorg bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance arc-gtk-theme papirus-icon-theme vlc pcmanfm file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter pacman-contrib neofetch code galculator evince gufw clamtk nodejs npm ctags python-pygame gpickview
+$ sudo pacman -S xf86-video-intel (xf86-video-amdgpu) (nvidia-lts nvidia-settings) xorg-server bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance (arc-gtk-theme papirus-icon-theme) vlc gimp thunar file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings pacman-contrib neofetch galculator evince gufw clamtk nodejs npm ctags  gpicview ranger the_silver_searcher  openssh
 
 ```
  
@@ -30,9 +30,10 @@ exec bspwm
 ```
 $ sudo systemctl enable lightdm
 ```
-## Post Installation
-#### Install Yay
 
+## Post Installation
+
+#### Install Yay
 ```
 $ cd /opt
 $ sudo git clone https://aur.archlinux.org/yay.git
@@ -42,18 +43,20 @@ $ makepkg -si
 ```
 
 ```
-$ yay -S polybar pamac-aur siji-git zoom betterlockscreen gotop
+$ yay -S polybar pamac-aur zoom betterlockscreen gotop heroku-cli (optimus-manager)
 ```
 
 ```
 $ nvim .config/polybar/config
 $ chmod +x .config/polybar/launch.sh
 ```
+
 ## Set up Betterlockscreen
 ```
 $ sudo pacman -S xorg-xdpyinfo xorg-xrandr bc feh
 $ betterlockscreen -u Pictures/arch.png -b 1.0
 ```
+
 ## Set up Pamac Manager
 ```
 $ su
@@ -66,15 +69,18 @@ polkit.addRule(function(action, subject) {
 	}
 });
 ```
+
 ## Remove orphans
 ```
 $ sudo pacman -Qtdq
 $ sudo pacman -Rns $(pacman -Qtdq)
 ```
+
 ## Update core editor of git
 ```
 $ git config --global core.editor 'nvim'
 ```
+
 ## Configure Lightdm
 ```
 $ sudo pacman -S lightdm-gtk-greeter-settings
@@ -84,7 +90,7 @@ Note: Put PNG or JPG images in /usr/share/pixmaps
 
 ## Fonts
 ```
-$ sudo pacman -S ttf-font-awesome ttf-cascadia-code ttf-fira-code ttf-droid ttf-joypixels ttf-nerd-fonts-symbols
+$ sudo pacman -S otf-font-awesome otf-cascadia-code ttf-fira-code ttf-droid ttf-joypixels ttf-nerd-fonts-symbols
 ```
 
 ## Configure Powerline Terminal
@@ -109,6 +115,12 @@ set preivew_images_method kitty
 ```
 $ nvim .bashrc
 
+force_color_prompt=yes
 export VISUAL=nvim;
 export EDITOR=nvim;
+```
+
+# Python
+```
+$ sudo pacman -S python-pygame python-requests python-pandas python-beautifulsoup4 python-openpyxl
 ```

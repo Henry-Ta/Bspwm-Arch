@@ -123,11 +123,11 @@ super + {Left,Down,Up,Right}
 #--------------------- Take Screenshots----------------#
 #Full screen
 Print
-    maim "/home/$USER/Pictures/$(date)"
+    maim "/home/$USER/Pictures/Screenshots/$(date)"
 
 #Selection
 shift + Print
-    maim --select "/home/$USER/Pictures/$(date)"
+    maim --select "/home/$USER/Pictures/Screenshots/$(date)"
 
 #------------------- Ranger ----------------------#
 super + e
