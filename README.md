@@ -6,7 +6,7 @@ $ sudo pacman -Syy
 ```
 
 ```
-$ sudo pacman -S xf86-video-intel (xf86-video-amdgpu) (nvidia-lts nvidia-settings) xorg-server bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance (arc-gtk-theme papirus-icon-theme) vlc gimp thunar file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings pacman-contrib neofetch galculator evince gufw clamtk nodejs npm ctags  gpicview ranger the_silver_searcher  openssh
+$ sudo pacman -S xf86-video-intel (xf86-video-amdgpu) (nvidia-lts nvidia-settings) xorg xorg-xinit bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance (arc-gtk-theme papirus-icon-theme) vlc gimp thunar file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings pacman-contrib neofetch galculator evince gufw clamtk nodejs npm ctags  gpicview ranger the_silver_searcher  openssh
 
 ```
  
@@ -22,6 +22,7 @@ $ nvim .config/bspwm/bspwmrc
 
 ```
 ```
+$ cp /etc/X11/xinit/xinitrc .xinitrc
 $ nvim .xinitrc
 
 sxhkd &
@@ -47,6 +48,7 @@ $ yay -S polybar pamac-aur zoom betterlockscreen gotop heroku-cli (optimus-manag
 ```
 
 ```
+$ cp /usr/share/doc/polybar/config .config/polybar/ 
 $ nvim .config/polybar/config
 $ chmod +x .config/polybar/launch.sh
 ```
