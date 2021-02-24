@@ -126,3 +126,34 @@ export EDITOR=nvim;
 ```
 $ sudo pacman -S python-pygame python-requests python-pandas python-beautifulsoup4 python-openpyxl
 ```
+
+# Install Vim Plug
+```
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+```
+
+# oh-my-bash
+```
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+```
+
+# Thunar trash
+```
+$ sudo pacman -S gvfs
+```
+
+# Time 
+```
+$ sudo pacman -S ntp
+$ sudo systemctl enable ntpd
+```
+
+# Ranger
+```
+cp /usr/share/doc/ranger/config/rifle.conf .config/ranger/
+cp /usr/share/doc/ranger/config/rc.conf .config/ranger/
+$ sudo pacman -S bat mediainfo 
+
+$ nvim .config/ranger/rc.conf
+```
