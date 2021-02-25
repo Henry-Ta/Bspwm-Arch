@@ -153,7 +153,21 @@ $ sudo systemctl enable ntpd
 ```
 cp /usr/share/doc/ranger/config/rifle.conf .config/ranger/
 cp /usr/share/doc/ranger/config/rc.conf .config/ranger/
+
 $ sudo pacman -S bat mediainfo 
 
 $ nvim .config/ranger/rc.conf
+
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+
+echo "default_linemode devicons" >> ~/.config/ranger/rc.conf
+
+~/.config/ranger/plugins/ranger_devicons   
+```
+
+# .config configuration
+```
+https://github.com/4lgn/dotfiles/tree/bspwm
+
+
 ```
