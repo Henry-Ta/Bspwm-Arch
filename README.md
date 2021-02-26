@@ -44,7 +44,7 @@ $ makepkg -si
 ```
 
 ```
-$ yay -S polybar pamac-aur zoom betterlockscreen gotop heroku-cli (optimus-manager)
+$ yay -S polybar pamac-aur zoom betterlockscreen gotop heroku-cli optimus-manager optimus-manager-qt ttf-iosevka ttf-icomoon-feather
 ```
 
 ```
