@@ -8,6 +8,8 @@ nitrogen --restore &
 
 picom -f & 
 
+plank &
+
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width            3 
@@ -29,3 +31,5 @@ bspc rule -a Lxappearance       state=floating
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+
+bspc rule -a Plank layer=above manage=on border=off

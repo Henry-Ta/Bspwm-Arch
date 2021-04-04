@@ -6,7 +6,7 @@ $ sudo pacman -Syy
 ```
 
 ```
-$ sudo pacman -S xf86-video-intel (xf86-video-amdgpu) (nvidia-lts nvidia-settings) xorg xorg-xinit bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance (arc-gtk-theme papirus-icon-theme) vlc gimp thunar file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings pacman-contrib neofetch galculator evince gufw clamtk nodejs npm ctags  gpicview ranger the_silver_searcher  openssh
+$ sudo pacman -S xf86-video-intel (xf86-video-amdgpu) (nvidia-lts/nvidia nvidia-settings) xorg bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance (arc-gtk-theme papirus-icon-theme) vlc gimp pcmanfm file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings pacman-contrib neofetch galculator evince gufw clamtk nodejs npm ctags  gpicview ranger the_silver_searcher openssh plank 
 
 ```
  
@@ -44,7 +44,7 @@ $ makepkg -si
 ```
 
 ```
-$ yay -S polybar pamac-aur zoom betterlockscreen gotop heroku-cli optimus-manager optimus-manager-qt ttf-iosevka ttf-icomoon-feather
+$ yay -S polybar pamac-aur zoom (gruvbox-material-gtk-theme-git gruvbox-material-icon-theme-git) betterlockscreen gotop heroku-cli optimus-manager optimus-manager-qt ttf-ms-fonts ttf-iosevka ttf-icomoon-feather
 ```
 
 ```
