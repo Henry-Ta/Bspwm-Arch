@@ -36,12 +36,13 @@ if (has("termguicolors"))
 endif
 
 syntax enable
+set background=dark
 colorscheme gruvbox 
 
 
 "--------------------------------------- Vim Airline 
 let g:airline_theme='gruvbox' 
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1 
 
 
 "-----------------------------------------------GitGutter
@@ -90,6 +91,7 @@ nnoremap <M-e> :NERDTreeToggle <CR>
 " let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []
+let g:NERDTreeWinPos = 'right' 
 " let g:NERDTreeStatusline = ''
 
 "-------------------------------------- Nerd Tree Git Plugin
@@ -110,7 +112,7 @@ let g:NERDTreeIgnore = []
 
 "------------------------------------- Devicons
 set guifont=DroidSansMono\ Nerd\ Font\ 11
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0 
 
 
 "------------------------------------- Syntax Highlight
@@ -161,7 +163,7 @@ set smartindent
 
 "------------------------------------------------------------------ Indent Line
 let g:indentLine_setColors = 0
-"let g:indentLine_char_list = ['▏','│','|','⎸', '¦', '┆', '┊']    
+"let g:indentLine_char_list = ['▏','│','|','⎸', '¦', '┆', '┇', '┊', '┋', '┆┇┃┊┋']    
 let g:indentLine_char = '▏'
 "let g:indentLine_char_list = ['│','┆']
 
@@ -178,7 +180,7 @@ set splitbelow
 set splitright
 set mouse=a
 set cursorline
-
+set nowrap
 
 "----------------------------------------------------- Tab Width
 set tabstop=4       " The width of a TAB is set to 4. Still it is a \t. It is just that Vim will interpret it to be having a width of 4.

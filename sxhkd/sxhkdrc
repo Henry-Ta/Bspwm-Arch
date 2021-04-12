@@ -7,7 +7,7 @@ super + Return
 	kitty
 
 # program launcher
-super + r
+super + @space
 	rofi -show drun
 
 # make sxhkd reload its configuration files:
@@ -23,7 +23,7 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + } q
+super + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -120,7 +120,7 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-#--------------------- Take Screenshots----------------#
+#------------------------ Take Screenshots---------------------#
 #Full screen
 Print
     maim "/home/$USER/Pictures/Screenshots/$(date)"
@@ -129,10 +129,10 @@ Print
 shift + Print
     maim --select "/home/$USER/Pictures/Screenshots/$(date)"
 
-#------------------- Ranger ----------------------#
+#------------------------ Ranger ------------------------#
 super + e
     kitty -e ranger
 
-#------------------- Qutebrowser -----------------#
+#------------------------ Qutebrowser --------------------------#
 super + w
     qutebrowser

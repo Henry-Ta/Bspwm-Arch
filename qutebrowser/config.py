@@ -15,7 +15,7 @@ c.confirm_quit = ["downloads","multiple-tabs"]
 c.tabs.padding = {
     "left": 5,
     "right": 5,
-    "top": 5,
+    "top": 3,
     "bottom": 5,
 }
 
