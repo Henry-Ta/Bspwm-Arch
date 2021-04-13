@@ -6,23 +6,21 @@ $ sudo pacman -Syy
 ```
 
 ```
-$ sudo pacman -S xf86-video-intel (xf86-video-amdgpu) (nvidia-lts/nvidia nvidia-settings) xorg bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance (arc-gtk-theme papirus-icon-theme) vlc gimp pcmanfm file-roller pavucontrol bash-completion lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings pacman-contrib neofetch galculator evince gufw clamtk nodejs npm ctags  gpicview ranger the_silver_searcher openssh plank 
+$ sudo pacman -S (xf86-video-intel/xf86-video-amdgpu) (nvidia-lts/nvidia nvidia-utils nvidia-settings) xorg-server bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance (arc-gtk-theme papirus-icon-theme) vlc gimp pcmanfm file-roller pavucontrol lightdm lightdm-gtk-greeter (lightdm-gtk-greeter-settings) neofetch galculator evince gufw clamtk nodejs npm ctags  gpicview ranger the_silver_searcher plank 
 
 ```
  
 ```
 $ mkdir .config/bspwm .config/sxhkd .config/polybar
-$ cp /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
-$ cp /usr/share/doc/bspwm/examples/sxhkdrc .config/sxhkd/
-$ chmod +x .config/bspwm/bspwmrc
-$ chmod +x .config/sxhkd/sxhkdrc
+$ install -Dm755 /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/bspwmrc
+$ install -Dm644 /usr/share/doc/bspwm/examples/sxhkdrc .config/sxhkd/sxhkdrc
 
 $ nvim .config/sxhkd/sxhkdrc
 $ nvim .config/bspwm/bspwmrc
 
 ```
 ```
-$ cp /etc/X11/xinit/xinitrc .xinitrc
+$ (cp /etc/X11/xinit/xinitrc .xinitrc)
 $ nvim .xinitrc
 
 sxhkd &
@@ -50,6 +48,7 @@ $ yay -S polybar pamac-aur zoom (gruvbox-material-gtk-theme-git gruvbox-material
 ```
 $ cp /usr/share/doc/polybar/config .config/polybar/ 
 $ nvim .config/polybar/config
+
 $ chmod +x .config/polybar/launch.sh
 ```
 
