@@ -6,7 +6,7 @@ $ sudo pacman -Syy
 ```
 
 ```
-$ sudo pacman -S (xf86-video-intel/xf86-video-amdgpu) (nvidia-lts/nvidia nvidia-utils nvidia-settings) xorg-server bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance (arc-gtk-theme papirus-icon-theme) vlc gimp pcmanfm file-roller pavucontrol lightdm lightdm-gtk-greeter (lightdm-gtk-greeter-settings) neofetch galculator evince gufw clamtk nodejs npm ctags  gpicview ranger the_silver_searcher plank 
+$ sudo pacman -S (xf86-video-intel/xf86-video-amdgpu) (nvidia-lts/nvidia nvidia-utils nvidia-settings) xorg-server bspwm sxhkd rofi nitrogen picom maim kitty qutebrowser chromium lxappearance (arc-gtk-theme papirus-icon-theme) vlc gimp pcmanfm file-roller pavucontrol lightdm lightdm-gtk-greeter (lightdm-gtk-greeter-settings) neofetch galculator evince gufw clamtk nodejs npm ctags  gpicview ranger the_silver_searcher plank libreoffice-fresh
 
 ```
  
@@ -42,7 +42,7 @@ $ makepkg -si
 ```
 
 ```
-$ yay -S polybar pamac-aur zoom (gruvbox-material-gtk-theme-git gruvbox-material-icon-theme-git) betterlockscreen gotop heroku-cli optimus-manager optimus-manager-qt ttf-ms-fonts ttf-iosevka ttf-icomoon-feather
+$ yay -S polybar pamac-aur zoom (gruvbox-material-gtk-theme-git gruvbox-material-icon-theme-git) visual-studio-code-bin betterlockscreen gotop heroku-cli optimus-manager optimus-manager-qt ttf-ms-fonts ttf-iosevka ttf-icomoon-feather
 ```
 
 ```
@@ -50,6 +50,11 @@ $ cp /usr/share/doc/polybar/config .config/polybar/
 $ nvim .config/polybar/config
 
 $ chmod +x .config/polybar/launch.sh
+```
+
+```
+$ sudo systemctl enable optimus-manager
+$ sudo systemctl start optimus-manager
 ```
 
 ## Set up Betterlockscreen
@@ -100,26 +105,6 @@ OSH_THEME="cupcake" 	( .bashrc )
 $ nvim .oh-my-bash/themes/cupcake/cupcake.theme.sh
 ```
 
-## Enable Image Preview for Kitty and Ranger
-```
-$ sudo pacman -S w3m python-pillow
-```
-```
-$ nvim .config/ranger/rc.conf
-
-set preview_images true
-set preivew_images_method kitty
-
-```
-
-## Enalb document view in nvim from ranger
-```
-$ nvim .bashrc
-
-force_color_prompt=yes
-export VISUAL=nvim;
-export EDITOR=nvim;
-```
 
 # Python
 ```
@@ -153,9 +138,17 @@ $ sudo systemctl enable ntpd
 cp /usr/share/doc/ranger/config/rifle.conf .config/ranger/
 cp /usr/share/doc/ranger/config/rc.conf .config/ranger/
 
-$ sudo pacman -S bat mediainfo 
+$ sudo pacman -S highlight mediainfo w3m python-pillow
 
 $ nvim .config/ranger/rc.conf
+
+(Enable Image preview for ranger on Kitty)
+
+set preview_images true
+set preivew_images_method kitty
+
+
+(Add icon to ranger)
 
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
@@ -164,9 +157,48 @@ echo "default_linemode devicons" >> ~/.config/ranger/rc.conf
 ~/.config/ranger/plugins/ranger_devicons   
 ```
 
+## Enable document view in nvim from ranger
+```
+$ nvim .bashrc
+
+force_color_prompt=yes
+export VISUAL=nvim;
+export EDITOR=nvim;
+```
+
 # .config configuration
 ```
 https://github.com/4lgn/dotfiles/tree/bspwm
 
+```
+
+# Install wifi for Kernel module 
+```
+* Install
+
+$ git clone https://github.com/lwfinger/rtw88.git
+$ cd rtw88
+$ make
+$ sudo make install
+
+
+* Disable/enable a kernel module
+
+$ sudo modprobe -r rtw_8723de         #This unloads the module
+$ sudo modprobe rtw_8723de            #This loads the module
+
+* When kenel changes, have to update
+$ cd ~/rtw88
+$ git pull
+$ make
+$ sudo make install
+```
+
+# Set up Netbeans
+```
+$ sudo pacman -S netbeans wmname
+
+( In .config/bspwm/bspwmrc )
+wmname LG3D
 
 ```
